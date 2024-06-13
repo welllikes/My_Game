@@ -106,7 +106,7 @@ class ColoringApp:
 
         # Выпадающее меню для выбора типа кисти
         self.brush_type = tk.StringVar()
-        self.brush_type.set("Кисти")  # Тип кисти по умолчанию
+        self.brush_type.set("Кисть")  # Тип кисти по умолчанию
         self.brush_menu = tk.OptionMenu(self.controls_frame, self.brush_type, "Кисть", "Карандаш", "Спрей")
         self.brush_menu.configure(bg="#D2B4DE", fg="white", font=("Arial", 12, "bold"), borderwidth=0)
         self.brush_menu.pack(padx=10, pady=5, fill=tk.X)
@@ -208,7 +208,7 @@ class ColoringApp:
                 self.draw_eraser(x, y)
             else:
                 brush_type = self.brush_type.get()
-                if brush_type == "Кисти":
+                if brush_type == "Кисть":
                     item = self.draw_round_brush(x, y)
                 elif brush_type == "Карандаш":
                     self.draw_square_brush(x, y)
@@ -245,11 +245,6 @@ class ColoringApp:
                     self.image_tk = ImageTk.PhotoImage(self.background_image)
                     self.image_id = self.canvas.create_image(0, 0, anchor=tk.NW, image=self.image_tk)
 
-    def redo(self):
-        if self.redo_stack:
-            ps_data = self.redo_stack.pop()
-            self.undo_stack.append(ps_data)
-            self.load_canvas_state(ps_data)
 
     def save_canvas_state_to_redo(self):
         if len(self.redo_stack) >= 3:
