@@ -160,6 +160,7 @@ class ColoringApp:
         # Открытие диалога для выбора изображения
         file = filedialog.askopenfilename(filetypes=[("Images", "*.png;*.jpg;*.jpeg")])
         if file:
+            self.clear_canvas()  # Очистка холста перед загрузкой нового изображения
             self.background_image = Image.open(file)
 
             # Получение размеров экрана
@@ -332,4 +333,3 @@ if __name__ == "__main__":
     root.mainloop()
 
 
-# тест 1.
