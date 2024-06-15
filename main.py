@@ -123,7 +123,7 @@ class ColoringApp:
         self.brush_size_slider.set(5)  # Размер кисти по умолчанию
 
         # Кнопка выхода из приложения
-        self.exit_button = tk.Button(self.controls_frame, text="Выход", command=self.root.quit,
+        self.exit_button = tk.Button(self.controls_frame, text="Выйти", command=self.root.quit,
                                  bg="#E74C3C", fg="white", font=("Arial", 12, "bold"), borderwidth=0)
         self.exit_button.pack(padx=10, pady=5, fill=tk.X)
 
